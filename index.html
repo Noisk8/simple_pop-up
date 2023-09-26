@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pop-up de Podcast</title>
+    <style>
+        /* Estilos para el fondo oscuro */
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 1;
+        }
+
+        /* Estilos para la tarjeta pop-up */
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-image: url('https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExNmJvMjFqZDZxZGtueTBnY2VlODg5MWc3bTlnM2ZhMHMwbmZjcGRrdSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/uFXA1P8rq2ayfowqA2/giphy.gif'); /* Cambia 'tu-imagen-de-fondo-con-transparencia.png' por la URL de tu imagen de fondo con transparencia */
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            padding: 20px;
+            z-index: 2;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            width: 90%;
+            max-width: 400px;
+            text-align: center;
+            color: #fff;
+        }
+
+        /* Estilos para el botón de cerrar */
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        /* Estilos para el botón decorado */
+        .btn {
+            background-color: rgba(0, 123, 255, 0.8); /* Cambia el fondo con transparencia según tus preferencias */
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: rgba(0, 123, 255, 1); /* Cambia el fondo con transparencia según tus preferencias */
+        }
+
+        /* Hacer que la tarjeta pop-up sea responsive */
+        @media (max-width: 768px) {
+            .popup {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Fondo oscuro y tarjeta pop-up -->
+    <div class="overlay" id="overlay"></div>
+    <div class="popup" id="popup">
+        <span class="close" onclick="closePopup()">&times;</span>
+        <h2>Promoción de Podcast</h2>
+        <!-- Espacio para la imagen con transparencia -->
+        <img src="https://media0.giphy.com/media/l4XfgLyXAnyzCh7vfY/200w.webp?cid=ecf05e47ao34s0a4sx31ufutda7s8f54svnec7w1vmz7iboe&ep=v1_gifs_search&rid=200w.webp&ct=g" alt="Imagen del Podcast" style="max-width: 100%; margin: 10px 0;">
+        <p>¡Descubre nuestro nuevo podcast! Escucha episodios emocionantes sobre temas interesantes.</p>
+        <!-- Botón decorado con transparencia -->
+        <a href="https://tu-podcast.com" target="_blank" class="btn">Visitar el Podcast</a>
+    </div>
+
+    <script>
+        // Función para mostrar el pop-up automáticamente después de 5 segundos
+        setTimeout(function() {
+            document.getElementById('overlay').style.display = 'block';
+            document.getElementById('popup').style.display = 'block';
+        }, 5000);
+
+        // Función para cerrar el pop-up
+        function closePopup() {
+            document.getElementById('overlay').style.display = 'none';
+            document.getElementById('popup').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
